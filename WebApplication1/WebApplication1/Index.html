@@ -61,7 +61,7 @@
 
 
         <div class="container">
-
+            Rows to display : <input type="number" step="1" ng-model="rowCount" max="5" min="0" />
             <table class="table table-bordered table-responsive">
                 <thead>
                     <tr>
@@ -69,14 +69,29 @@
                         <th>Lastname</th>
                         <th>Gender</th>
                         <th>Salary</th>
+                        <th>Date of Birth</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="employee in employees">
+                    <tr ng-repeat="employee in employees  | limitTo:rowCount">
                         <td> {{ employee.firstName }} </td>
                         <td> {{ employee.lastName }} </td>
                         <td> {{ employee.gender }} </td>
-                        <td> {{ employee.salary }} </td>
+                        <td> {{ employee.salary | currency : "Rs " : 1 }} </td>
+                        <td> {{ employee.dateOfBirth | date:"dd/MM/yyyy" }} </td>
+
+                        <td>
+                            <button href="#" ng-click="incrementLikes(employee)">
+                                {{employee.likes}}   <span class="glyphicon glyphicon-thumbs-up"></span>
+                            </button>
+                            <button href="#" ng-click="incrementDislikes(employee)">
+                                {{employee.dislikes}}  <span class="glyphicon glyphicon-thumbs-down"></span>
+                            </button>
+
+
+
+                        </td>
                     </tr>
                 </tbody>
             </table>
