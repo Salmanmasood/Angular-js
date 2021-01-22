@@ -15,10 +15,20 @@ myApp.controller("myController", function ($scope) {
     
     $scope.employees = employees;
     $scope.rowCount = 4;
+    $scope.sortColumn = "firstName";
+
+    //Events
+    $scope.sortBy = function (param) {
+        $scope.sortColumn = param;
+    };
+
+
 
     $scope.incrementLikes = function (technology) {
         technology.likes++;
     };
+
+
 
     $scope.incrementDislikes = function (technology) {
         technology.dislikes++;
