@@ -22,7 +22,21 @@ myApp.controller("myController", function ($scope) {
         $scope.sortColumn = param;
     };
 
+    $scope.search = function (item) {
+        if ($scope.searchText == undefined) {
+            return true;
+        }
+        else {
+            if (item.salary.toLowerCase()
+                .indexOf($scope.searchText.toLowerCase()) != -1 ||
+                item.firstName.toLowerCase()
+                    .indexOf($scope.searchText.toLowerCase()) != -1) {
+                return true;
+            }
+        }
 
+        return false;
+    };
 
     $scope.incrementLikes = function (technology) {
         technology.likes++;
