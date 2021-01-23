@@ -6,6 +6,7 @@
     <script src="Scripts/angular.min.js"></script>
     <script src="Scripts/angular.js"></script>
     <script src="Scripts/JavaScript.js"></script>
+    <script src="Scripts/Filters.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <style>
         th span{
@@ -91,7 +92,7 @@
                     <tr ng-repeat="employee in employees | limitTo:rowCount| orderBy:sortColumn| filter:searchText">
                         <td> {{ employee.firstName }} </td>
                         <td> {{ employee.lastName }} </td>
-                        <td> {{ employee.gender }} </td>
+                        <td> {{ employee.gender| gender }} </td>
                         <td> {{ employee.salary | currency : "Rs " : 1 }} </td>
                         <td> {{ employee.dateOfBirth | date:"dd/MM/yyyy" }} </td>
 
