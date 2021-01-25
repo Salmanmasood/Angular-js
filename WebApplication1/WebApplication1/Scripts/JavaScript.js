@@ -16,6 +16,7 @@ app.controller("myController", function ($scope) {
     $scope.employeeObject = data;
     
     $scope.employees = employees;
+    $scope.employeeView = "TableTemplate.html";
     $scope.rowCount = 4;
     $scope.sortColumn = "firstName";
 

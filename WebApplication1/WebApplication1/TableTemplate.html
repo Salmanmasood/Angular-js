@@ -1,0 +1,51 @@
+﻿<table class="table table-bordered table-responsive">
+    <thead>
+        <tr>
+            <th>
+                First name
+                <span ng-click="sortBy('firstName')" class="glyphicon glyphicon-triangle-top"></span>
+                <span ng-click="sortBy('-firstName')" class="glyphicon glyphicon-triangle-bottom"></span>
+
+            </th>
+            <th>Lastname</th>
+            <th>Gender</th>
+            <th ng-show="hideSalary">Salary</th>
+            <th ng-hide="hideSalary">
+                Salary
+                <span ng-click="sortBy('salary')" class="glyphicon glyphicon-triangle-top"></span>
+                <span ng-click="sortBy('-salary')" class="glyphicon glyphicon-triangle-bottom"></span>
+            </th>
+            <th>Date of Birth</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="employee in employees | limitTo:rowCount| orderBy:sortColumn| filter:searchText">
+            <td> {{ employee.firstName }} </td>
+            <td> {{ employee.lastName }} </td>
+            <td> {{ employee.gender| gender }} </td>
+            <td ng-hide="hideSalary"> {{ employee.salary | currency : "Rs " : 1 }} </td>
+            <td ng-show="hideSalary">#######</td>
+            <td> {{ employee.dateOfBirth | date:"dd/MM/yyyy" }} </td>
+
+            <td>
+                <button href="#" ng-click="incrementLikes(employee)">
+                    {{employee.likes}}   <span class="glyphicon glyphicon-thumbs-up"></span>
+                </button>
+                <button href="#" ng-click="incrementDislikes(employee)">
+                    {{employee.dislikes}}  <span class="glyphicon glyphicon-thumbs-down"></span>
+                </button>
+
+
+
+            </td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="6">
+                Rows to display : <input type="number" step="1" ng-model="rowCount" max="5" min="0" />
+            </td>
+        </tr>
+    </tfoot>
+</table>

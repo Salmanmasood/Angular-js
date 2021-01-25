@@ -94,6 +94,7 @@
   <ItemGroup>
     <Content Include="Images\1.jpg" />
     <Content Include="Index.html" />
+    <Content Include="ListTemplate.html" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-aria.js" />
@@ -861,6 +862,7 @@
     <Content Include="Scripts\i18n\angular-locale_zu.js" />
     <Content Include="Scripts\JavaScript.js" />
     <Content Include="Scripts\sitemap.xml" />
+    <Content Include="TableTemplate.html" />
     <Content Include="Scripts\test-bundles\angular-aria.js" />
     <Content Include="Scripts\test-bundles\angular-cookies.js" />
     <Content Include="Scripts\test-bundles\angular-message-format.js" />
