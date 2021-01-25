@@ -69,10 +69,16 @@
         <div class="container">
             <input type="checkbox" ng-model="hideSalary" />Hide Salary
             Search : <input type="text" placeholder="Search employees" ng-model="searchText" />
-            <div ng-include="'TableTemplate.html'">
+            Select View :
+            <select ng-model="employeeView">
+                <option value="TableTemplate.html">Table</option>
+                <option value="ListTemplate.html">List</option>
+            </select>
+            <br /><br />
+            <div ng-include="employeeView">
+
             </div>
-
-
         </div>
+          
 </body>
 </html>
