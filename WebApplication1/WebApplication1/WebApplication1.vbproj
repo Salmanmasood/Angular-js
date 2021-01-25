@@ -92,6 +92,7 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\post.html" />
     <Content Include="app\posts.html" />
     <Content Include="app\Home.html" />
     <Content Include="Images\1.jpg" />

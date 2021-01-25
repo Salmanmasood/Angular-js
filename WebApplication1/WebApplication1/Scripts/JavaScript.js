@@ -11,9 +11,13 @@ var app = angular.module("Demo", ["ngRoute"])
                 templateUrl: "app/posts.html",
                 controller: "postsController"
             })
+            .when("/post/:id", {
+                templateUrl: "app/post.html",
+                controller: "postController"
+            })
             .otherwise({
                 redirectTo: "/home"
-            });
+            })
 
         $locationProvider.html5Mode(true);
     })
@@ -106,3 +110,14 @@ app.controller("postsController", function ($scope, $http, $location, $anchorScr
 
 
 
+app.controller("postController", function ($scope, $http, $routeParams) {
+     $http({
+         url: "https://jsonplaceholder.typicode.com/posts/" + $routeParams.id,
+         method: "get",
+       //params: { id:  }
+
+     }).then(function (response) {
+         $scope.post = response.data;
+         console.log(response.data);
+     })
+ })
