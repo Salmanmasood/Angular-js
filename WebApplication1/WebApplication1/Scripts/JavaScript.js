@@ -11,7 +11,7 @@ var employees = [
     { firstName: "Pam", lastName: "Macintosh", gender: 1, salary: 53000, dateOfBirth: new Date("August 23, 1924"),likes: 0, dislikes: 0 },
     { firstName: "Todd", lastName: "Barber", gender: 1, salary: 60000, dateOfBirth: new Date("August 12, 1975"), likes: 0, dislikes: 0}, data
 ];
-app.controller("myController", function ($scope) {
+app.controller("myController", function ($scope,$http) {
     $scope.message = "Employee Detail";
     $scope.employeeObject = data;
     
@@ -50,5 +50,18 @@ app.controller("myController", function ($scope) {
     $scope.incrementDislikes = function (technology) {
         technology.dislikes++;
     };
+
+    //Services calling.........................
+    $http({
+        method: 'GET',
+        url: 'https://jsonplaceholder.typicode.com/posts',
+        headers: {
+            'Content-Type': 'application/json',
+           // 'Authorization': AUTH_STRING_HERE
+        }
+    }).then(function (response) {
+        console.log(response.data);
+        $scope.posts = response.data;
+    });
 
 });
