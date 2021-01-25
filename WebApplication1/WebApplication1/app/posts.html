@@ -1,0 +1,24 @@
+﻿
+<div ng-controller="postsController">
+
+
+    <div class="container">
+        <button id="top" ng-click="scrollTo('bottom')">
+            Go to bottom of the page
+        </button>
+        <h1>From Service Data:</h1>
+        <div class="panel-group" ng-repeat="post in posts">
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">{{post.title}}  <label style="float:right" class="badge badge-danger">Posted By: {{post.userId}}</label></div>
+                <div class="panel-body">{{post.body}}</div>
+            </div>
+
+
+        </div>
+        <button id="bottom" ng-click="scrollTo('top')">
+            Go to top of the page
+        </button>
+    </div>
+
+</div>
