@@ -1,5 +1,5 @@
 ﻿
-<div ng-controller="postCtrl">
+<div ng-controller="postController">
 
 
     <div class="container">
@@ -11,7 +11,17 @@
                 <div class="panel-heading">{{post.title}}  <label style="float:right" class="badge badge-danger">Posted By: {{post.userId}}</label></div>
                 <div class="panel-body">{{post.body}}</div>
             </div>
-
+           
+            <!-- Nested media object -->
+            <div class="media">
+                <div class="media-left">
+                    <img ng-src="{{employeeObject.image}}" class="media-object" style="width:45px">
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">{{employeeObject.firstName}} <small><i>Posted on February 19, 2016</i></small></h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+            </div>
 
         </div>
    

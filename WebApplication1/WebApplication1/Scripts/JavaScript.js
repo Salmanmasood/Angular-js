@@ -6,7 +6,8 @@ var app = angular.module("Demo", ["ngRoute"])
         $routeProvider
             .when("/home", {
                 templateUrl: "app/home.html",
-                controller: "homeController"
+                controller: "homeController",
+                controllerAs:"homeCtrl"
             })
             .when("/posts", {
                 templateUrl: "app/posts.html",
@@ -29,10 +30,10 @@ var app = angular.module("Demo", ["ngRoute"])
 
 
 
-app.controller("homeController", function ($scope) {
+app.controller("homeController", function ($scope,$rootScope) {
     
     //data...........
-
+   
     var data = { empid: 1, firstName: "salman", desgination: "Software-Engineer", image: "https://localhost:44394/Images/1.jpg", gender: "Male", salary: 155000, dateOfBirth: new Date("August 15, 1974"), likes: 10, dislikes: 0 };
     var employees = [
         { firstName: "Ben", lastName: "Hastings", gender: 1, salary: 55000, dateOfBirth: new Date("August 22, 1964"), likes: 10, dislikes: 0 },
@@ -44,7 +45,7 @@ app.controller("homeController", function ($scope) {
 
     //data....................
     $scope.message = "Employee Detail";
-    $scope.employeeObject = data;
+    $rootScope.employeeObject = data;
     
     $scope.employees = employees;
     $scope.employeeView = "/app/TableTemplate.html";
