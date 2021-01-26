@@ -2,6 +2,7 @@
 
 var app = angular.module("Demo", ["ngRoute"])
     .config(function ($routeProvider, $locationProvider) {
+        $routeProvider.caseInsensitiveMatch = true;
         $routeProvider
             .when("/home", {
                 templateUrl: "app/home.html",
@@ -9,11 +10,14 @@ var app = angular.module("Demo", ["ngRoute"])
             })
             .when("/posts", {
                 templateUrl: "app/posts.html",
-                controller: "postsController"
+                controller: "postsController",
+                controllerAs: "postsCtrl"
             })
             .when("/post/:id", {
                 templateUrl: "app/post.html",
-                controller: "postController"
+                controller: "postController",
+                 controllerAs: "postCtrl"
+
             })
             .otherwise({
                 redirectTo: "/home"
@@ -83,8 +87,13 @@ app.controller("homeController", function ($scope) {
 
 
 
-app.controller("postsController", function ($scope, $http, $location, $anchorScroll) {
+app.controller("postsController", function ($scope, $http, $location, $anchorScroll, $route) {
 
+    var vm = this;
+
+    vm.reloadData = function () {
+        $route.reload();
+    }
 
     $scope.scrollTo = function (scrollLocation) {
         $location.hash(scrollLocation);
